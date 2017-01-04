@@ -27,8 +27,7 @@ include DuckGo
 
 ## API and Usage
 
-Check out the [documentation](https://github.com/wlib/duckgo/docs)
-
+Check out the [documentation](https://github.com/wlib/duckgo/tree/master/docs)
 ## Contribute
 
 If you use and enjoy DuckGo...
