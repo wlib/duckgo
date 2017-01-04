@@ -13,7 +13,7 @@ features from the official API.
 
 Install with RubyGems:
 
-+ `sudo gem install wik`
++ `sudo gem install duckgo`
 
 Then include this in your scripts:
 
