@@ -1,0 +1,32 @@
+#!/usr/bin/env ruby
+# DuckGo is a RubyGem library and command line tool for searching with DuckDuckGo.
+# By default, it puts out only the relevant information, but when told, it will dump
+# all the data you could ask for. This tool aims to give access to most of the
+# features from the official API.
+# Daniel Ethridge
+
+require "duckgo"
+include DuckGo
+require "duckgo/version"
+
+# If there are no arguments...
+if ARGV.length == 0
+  puts "Hmm..."
+  exit
+end
+
+help = """You are helpless. Goodluck.
+"""
+
+# Argument "parser" if you want to call it that
+case ARGV[0]
+  when "--help", "-h"
+    puts help
+    exit
+  when "--version", "-V"
+    puts "DuckGo v#{VERSION}"
+    exit
+  else
+    disp_topic_sums(ARGV[0..-1].join(" "))
+    exit
+end
