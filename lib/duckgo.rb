@@ -8,8 +8,8 @@ require 'yaml'
 
 module Duckgo
   # Do a raw api request based on paramaters
-  def get(params, url="https://api.duckduckgo.com/?") # url can also just be plain duckduckgo.com
-    endpoint = url + URI.encode_www_form(params)
+  def get(params, domain="https://api.duckduckgo.com", path="/") # domain can also just be plain duckduckgo.com
+    endpoint = "#{domain}/#{path}?#{URI.encode_www_form(params)}"
     body = open(endpoint).read
     return body
   end
@@ -31,6 +31,17 @@ module Duckgo
   #   "no_redirect" => [0, 1][no_redirect]
   # }
   def get_bang(bang, keywords, format=0, no_redirect=1)
+  end
+
+  # Get a website/page's favicon through duckduckgo's proxy
+  def get_favicon(page)
+    favicon = get(nil, endpoint, "/i/#{page}.ico")
+    if favicon = "R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAAAICTAEAOw=="
+      puts "Response is 200-OK, but content is empty"
+      return nil
+    else
+      return favicon
+    end
   end
 
   # Get topic summaries
