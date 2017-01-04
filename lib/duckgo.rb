@@ -36,7 +36,7 @@ module Duckgo
   # Get a website/page's favicon through duckduckgo's proxy
   def get_favicon(page)
     favicon = get(nil, endpoint, "/i/#{page}.ico")
-    if favicon = "R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAAAICTAEAOw=="
+    if favicon == "R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAAAICTAEAOw=="
       puts "Response is 200-OK, but content is empty"
       return nil
     else
