@@ -15,7 +15,15 @@ if ARGV.length == 0
   exit
 end
 
-help = """You are helpless. Goodluck.
+help = """DuckGo lets you search duckduckgo.com for instant answers
+
+duckgo [--help | -h]         :  Display this help
+duckgo [--version | -V]      :  Display version
+duckgo something searchable  :  Auto-handle the search
+duckgo \!gem duckgo          :  Use !bang syntax to search a specific site
+
+View docs and API on https://github.com/wlib/duckgo
+Made by Daniel Ethridge | git.io/de
 """
 
 # Argument "parser" if you want to call it that
