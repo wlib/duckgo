@@ -1,6 +1,4 @@
-# Topic Summaries
-
-## `extract_topic_sums()`
+# Basic API Usage and Quick Start
 
 ## Example
 
@@ -225,4 +223,62 @@ Results:
     Width: 16
   FirstURL: http://unix.org
   Text: Official site
+```
+
+Now with automatic relevant data handling with `handle()`, we can extract the information
+we want. Here's how:
+```Ruby
+require 'yaml'
+include DuckGo
+
+result = handle("unix")
+puts result.to_yaml
+```
+
+And this is the *now filtered* result.
+```YAML
+---
+Heading: Unix
+Entity: os
+Type: Article
+Description: Unix is a family of multitasking, multiuser computer operating systems
+  that derive from the original AT&T Unix, developed starting in the 1970s at the
+  Bell Labs research center by Ken Thompson, Dennis Ritchie, and others.
+Further Reading: https://en.wikipedia.org/wiki/Unix
+Related:
+- Unix Category
+- Market share of operating systems - The usage share of operating systems is the
+  percentage of the operating systems used in computers. Different categories of computers
+  use a wide variety of operating systems, with different OS families having a majority
+  on different platforms.
+- Operating systems timeline
+- Plan 9 from Bell Labs - Plan 9 from Bell Labs is a distributed operating system,
+  originally developed by the Computing Sciences Research Center at Bell Labs between
+  the mid-1980s and 2002.
+- Unix time - Unix time is a system for describing instants in time, defined as the
+  number of seconds that have elapsed since 00:00:00 Coordinated Universal Time, Thursday,
+  1 January 1970, not counting leap seconds. It is used widely in Unix-like and many
+  other operating systems and file formats.
+- Year 2038 problem - The Year 2038 problem is an issue for computing and data storage
+  situations in which time values are stored or calculated as a signed 32-bit integer,
+  and this number is interpreted as the number of seconds since 00:00:00 UTC on 1
+  January 1970.
+- Operating system families
+- Time-sharing operating systems
+Infobox:
+  Company / developer: Ken Thompson, Dennis Ritchie, Brian Kernighan, Douglas McIlroy,
+    and Joe Ossanna at Bell Labs
+  Written in: C and assembly language
+  OS family: Unix
+  Working state: Current
+  Source model: Historically closed-source, while some Unix projects (including BSD
+    family and Illumos) are open-source
+  Initial release: Development started in 1969, First manual published internally
+    in, Announced outside Bell Labs in
+  Available in: English
+  Kernel type: Monolithic
+  Default user interface: Command-line interface and Graphical (X Window System)
+  License: Varies, some versions are proprietary, others are free/open-source software
+Results:
+  Official site: http://unix.org
 ```
