@@ -27,6 +27,6 @@ case ARGV[0]
     puts "DuckGo v#{VERSION}"
     exit
   else
-    disp_topic_sums(ARGV[0..-1].join(" "))
+    handle(ARGV[0..-1].join(" "))
     exit
 end
