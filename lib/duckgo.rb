@@ -20,10 +20,11 @@ module DuckGo
 
   # Dump the useful data straight from DuckDuckGo's API
   # If format is XML, return it as a string even if parse is true
-  def get_data(keywords, format=0, no_redirect=1, parse=true)
+  def get_data(keywords, format=0, skip_disambig=1, no_redirect=1, parse=true)
     params = {
       "q" => keywords,
       "format" => ["json", "xml"][format],
+      "skip_disambig" => [0, 1][skip_disambig],
       "no_redirect" => [0, 1][no_redirect]
     }
     keywords.split(" ").each do |word|
