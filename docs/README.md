@@ -8,13 +8,15 @@ Now with automatic relevant data handling with `handle()`, we can extract the in
 we want. Here's how:
 ```Ruby
 require 'yaml'
+require 'duckgo'
 include DuckGo
 
 result = handle("unix")
 puts result.to_yaml
 ```
 
-And this is the *now filtered* result.
+And this is the *now filtered* result:
+
 ```YAML
 ---
 Heading: Unix
@@ -27,13 +29,14 @@ Further Reading: https://en.wikipedia.org/wiki/Unix
 Related:
 - Unix Category
 - Market share of operating systems - The usage share of operating systems is the
-...
+[...]
+
 Infobox:
   Company / developer: Ken Thompson, Dennis Ritchie, Brian Kernighan, Douglas McIlroy,
     and Joe Ossanna at Bell Labs
   Written in: C and assembly language
-...
-  License: Varies, some versions are proprietary, others are free/open-source software
+[...]
+
 Results:
   Official site: http://unix.org
 ```
