@@ -25,7 +25,7 @@ duckgo \\!gem duckgo                 :  Use !bang syntax to search a specific si
 
 If you do not see an answer, please shorten the search string.
 e.g. 'something with tons of extra information' => 'something'
-This is not something I can control, because this API does not
+This is an aspect of DuckGo I can control, because the official API does not
 allow a full search. More information - https://duckduckgo.com/api
 
 View docs and API on https://github.com/wlib/duckgo
@@ -55,7 +55,7 @@ case ARGV[0]
       puts extract_infobox(data).to_yaml
       exit
     else
-      puts "No infobox retrieved, try more clear search keywords"
+      puts "No infobox retrieved, try more clear search keywords or remove 'the --infobox|-i flag'"
       exit
     end
   else
