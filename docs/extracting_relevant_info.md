@@ -1,10 +1,10 @@
-# Extracting Relevant Inforamation
+# Extracting Relevant Information
 
 Once you get the data and parse it to a hash, you need to filter for the relevant information, here's how.
 
 ## extract_common()
 
-Extract common occuring relevant information
+Extract common occurring relevant information
 
 ### Arguments
 
