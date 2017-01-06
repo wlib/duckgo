@@ -47,8 +47,10 @@ module DuckGo
   # Get a website/page's favicon through duckduckgo's proxy
   def get_favicon(page)
     favicon = get(nil, "/i/#{page}.ico")
-    if favicon == "GIF89a\x01\x00\x01\x00\x80\x01\x00\x00\x00\x00\xFF\xFF\xFF!\xF9\x04\x01\x00\x00\x01\x00,\x00\x00\x00\x00\x01\x00\x01\x00\x00\x02\x02L\x01\x00;"
-      puts "Response is 200-OK, but content is a generic response"
+    require 'digest'
+    generic_resp = "ad4b0f606e0f8465bc4c4c170b37e1a3"
+    if Digest::MD5.hexdigest(favicon) == generic_resp
+      puts "Warning: response is 200-OK, but content is a generic response\nThis probably means the favicon is unreachable"
       return nil
     else
       return favicon
