@@ -23,6 +23,11 @@ duckgo [--version | -V]             :  Display version
 duckgo [--favicon | -f] google.com  :  Get google's favicon
 duckgo \\!gem duckgo                 :  Use !bang syntax to search a specific site
 
+If you do not see an answer, please shorten the search string.
+e.g. 'something with tons of extra information' => 'something'
+This is not something I can control, because this API does not
+allow a full search. More information - https://duckduckgo.com/api
+
 View docs and API on https://github.com/wlib/duckgo
 Made by Daniel Ethridge | git.io/de
 """
@@ -43,6 +48,16 @@ case ARGV[0]
     puts "Queried favicon from #{site}."
     file.close
     exit
+  when "--infobox", "-i"
+    data = get_data(ARGV[1..-1].join(" "))
+    extras_data = find_extras(data)
+    if extras_data["Infobox"]
+      puts extract_infobox(data).to_yaml
+      exit
+    else
+      puts "No infobox retrieved, try more clear search keywords"
+      exit
+    end
   else
     handle(ARGV[0..-1].join(" "))
     exit
